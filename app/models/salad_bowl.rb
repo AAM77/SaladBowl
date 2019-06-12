@@ -1,0 +1,2 @@
+class SaladBowl < ApplicationRecord
+end
