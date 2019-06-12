@@ -1,0 +1,2 @@
+class BowlIngredient < ApplicationRecord
+end
