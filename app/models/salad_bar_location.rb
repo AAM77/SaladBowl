@@ -1,0 +1,2 @@
+class SaladBarLocation < ApplicationRecord
+end
