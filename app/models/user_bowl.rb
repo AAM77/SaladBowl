@@ -1,0 +1,2 @@
+class UserBowl < ApplicationRecord
+end
