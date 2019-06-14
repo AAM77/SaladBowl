@@ -26,7 +26,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+
+# Use dotenv-rails to create a .env file for store sensitive information. Add the .env file to gitignore
 gem 'dotenv-rails'
+
+# User faker to generate data for rails quickly
+gem 'faker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
