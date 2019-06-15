@@ -1,7 +1,7 @@
 class CreatePreferences < ActiveRecord::Migration[5.2]
   def change
     create_table :preferences do |t|
-      t.integer :user_id
+      t.belongs_to :user, index: true
       t.string :allergy
       t.boolean :vegetarian
       t.boolean :kosher

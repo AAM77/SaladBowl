@@ -2,7 +2,7 @@ class CreateIngredients < ActiveRecord::Migration[5.2]
   def change
     create_table :ingredients do |t|
       t.integer :bowl_ingredient_id
-      t.integer :category_id
+      t.belongs_to :category, index: true
       t.string :name
       t.integer :calories
       t.integer :fat
