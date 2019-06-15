@@ -19,9 +19,12 @@ loc_ids = Location.all.map { |l| l.id }
 # SALAD BARS #
 ##############
 10.times do
-  SaladBar.create(
+  new_salad_bar = SaladBar.create(
     name: Faker::Vehicle.unique.manufacture
   )
+  rand(3).times do
+    new_salad_bar.locations.push(Location.find(loc_ids[rand(loc_ids.length)]))
+  end
 end
 
 
