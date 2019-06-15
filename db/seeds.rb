@@ -73,7 +73,6 @@ allergies = [
 ]
 
 true_false = [true, false]
-
 10.times do
   new_preference = Preference.new(
     allergy: allergies.sample,
@@ -82,13 +81,14 @@ true_false = [true, false]
     halal: true_false.sample,
     fasting: true_false.sample,
     bodybuilding: true_false.sample,
-    bulking: true_false.sample,
+    bulkin: true_false.sample,
     weight_loss: true_false.sample
   )
 
-  new_preference.user = User.find(users[rand(users.length)])
+  new_preference.user = User.find(users.shift)
   new_preference.save
 end
+
 # t.string :allergy
 # t.boolean :vegetarian
 # t.boolean :kosher
