@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_021331) do
+ActiveRecord::Schema.define(version: 2019_06_15_125812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bowl_ingredients", force: :cascade do |t|
-    t.bigint "bowl_id"
+    t.bigint "salad_bowl_id"
     t.bigint "ingredient_id"
-    t.index ["bowl_id"], name: "index_bowl_ingredients_on_bowl_id"
     t.index ["ingredient_id"], name: "index_bowl_ingredients_on_ingredient_id"
+    t.index ["salad_bowl_id"], name: "index_bowl_ingredients_on_salad_bowl_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -71,14 +71,14 @@ ActiveRecord::Schema.define(version: 2019_06_15_021331) do
 
   create_table "salad_bowls", force: :cascade do |t|
     t.string "name"
-    t.integer "type_id"
     t.boolean "favorite"
+    t.string "meal_time_frame"
   end
 
   create_table "user_bowls", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "bowl_id"
-    t.index ["bowl_id"], name: "index_user_bowls_on_bowl_id"
+    t.bigint "salad_bowl_id"
+    t.index ["salad_bowl_id"], name: "index_user_bowls_on_salad_bowl_id"
     t.index ["user_id"], name: "index_user_bowls_on_user_id"
   end
 
