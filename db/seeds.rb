@@ -130,7 +130,32 @@ end
 
 
 
+###############
+# INGREDIENTS #
+###############
 
+categories = Category.all.map { |c| c.id }
+salad_bowls = SaladBowl.all.map { |s| s.id }
+
+# Create 10 Ingredients
+10.times do
+  new_ingredient = Ingredient.new(
+    name: Faker::Food.ingredient,
+    calories: Faker::Number.number(3).to_i,
+    fat: Faker::Number.number(3).to_i,
+    cholesterol: Faker::Number.number(3).to_i,
+    sodium: Faker::Number.number(3).to_i,
+    carbohydrates: Faker::Number.number(3).to_i,
+    sugar: Faker::Number.number(2).to_i,
+    protein: Faker::Number.number(2).to_i
+  )
+
+  new_ingredient.category = Category.find(categories.sample)
+  rand(7).times do
+    new_ingredient.salad_bowls.push(SaladBowl.find(salad_bowls.sample))
+  end
+  new_ingredient.save
+end
 
 
 
