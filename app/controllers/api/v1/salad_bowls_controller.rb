@@ -31,18 +31,18 @@ class Api::V1::SaladBowlsController < ApplicationController
   def destroy
     @salad_bowl.destroy
   end
-
-  private
-
-    def set_salad_bowl
-      @salad_bowl = SaladBowl.find(params[:id])
-    end
-
-    def salad_bowl_params
-      params.require(:salad_bowl).permit(
-        :name,
-        :meal_time_frame,
-        :favorite
-      )
-    end
 end
+
+private
+
+  def set_salad_bowl
+    @salad_bowl = SaladBowl.find(params[:id])
+  end
+
+  def salad_bowl_params
+    params.require(:salad_bowl).permit(
+      :name,
+      :meal_time_frame,
+      :favorite
+    )
+  end
