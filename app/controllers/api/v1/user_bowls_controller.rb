@@ -22,7 +22,7 @@ class Api::V1::UserBowlsController < ApplicationController
 
   def update
     if @user_bowl.save
-      render json: @user_bowl, status: :updated, location: @user_bowl
+      render json: @user_bowl, status: :accepted
     else
       render json: @user_bowl.errors, status: :unprocessable_entity
     end
