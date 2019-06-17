@@ -1,22 +1,46 @@
 class Api::V1::CategoriesController < ApplicationController
+  before_action :set_category, only: [:show, :update, :destroy]
+
   def index
-  end
-
-  def new
-  end
-
-  def create
+    @categories = Category.all
+    render json: @categories
   end
 
   def show
+    render json: @category
   end
 
-  def edit
+  def create
+    @category = Category.new(category_params)
+
+    if @category.save
+      render json: @category, status: :created, location: @category
+    else
+      render json: @category.errors, status: :unprocessable_entity
+    end
   end
 
   def update
+    if @category.save
+      render json: @category, status: :accepted
+    else
+      render json: @category.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @category.destroy
   end
 end
+
+private
+
+  def set_category
+    @category = Category.find(params[:id])
+  end
+
+  def category_params
+    params.require(:category).permit(
+      :name
+    )
+  end
