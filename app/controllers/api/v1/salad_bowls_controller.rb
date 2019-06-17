@@ -22,7 +22,7 @@ class Api::V1::SaladBowlsController < ApplicationController
 
   def update
     if @salad_bowl.save
-      render json: @salad_bowl, status: :updated, location: @salad_bowl
+      render json: @salad_bowl, status: :accepted
     else
       render json: @salad_bowl.errors, status: :unprocessable_entity
     end
