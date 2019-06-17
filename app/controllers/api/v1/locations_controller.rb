@@ -22,7 +22,7 @@ class Api::V1::LocationsController < ApplicationController
 
   def update
     if @location.save
-      render json: @location, status: :updated, location: @location
+      render json: @location, status: :accepted
     else
       render json: @location.errors, status: :unprocessable_entity
     end
