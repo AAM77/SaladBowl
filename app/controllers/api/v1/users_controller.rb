@@ -25,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      render json: @user
+      render json: @user, status: :accepted
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -42,7 +42,7 @@ private
   def set_user
     @user = User.find(params[:id])
   end
-  
+
   def user_params
     params.require(:user).permit(
       :location_id,
