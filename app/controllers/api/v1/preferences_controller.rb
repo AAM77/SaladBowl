@@ -1,7 +1,7 @@
 class Api::V1::PreferencesController < ApplicationController
   before_action :set_preference, only: [:show, :update, :destroy]
   def index
-    @preferences = Prefence.all
+    @preferences = Preference.all
     render json: @preferences
   end
 
