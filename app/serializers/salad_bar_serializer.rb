@@ -1,3 +1,3 @@
 class SaladBarSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :locations
 end
