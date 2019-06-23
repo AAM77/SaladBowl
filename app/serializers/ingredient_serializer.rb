@@ -1,3 +1,13 @@
 class IngredientSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id,
+             :name,
+             :category,
+             :calories,
+             :carbohydrates,
+             :cholesterol,
+             :fat,
+             :protein,
+             :sodium,
+             :sugar
+
 end
