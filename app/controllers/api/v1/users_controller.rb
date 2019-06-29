@@ -13,12 +13,20 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    existing_username = User.find_by(username: form_data[:username])
+    existing_email = User.find_by(email: form_data[:email])
 
-    if @user.save
-      render json: @user, status: :created, location: @user
+    @user = User.new(form_data)
+    #byebug
+
+    if existing_username || existing_email
+      render json: @user.errors, status: "Invalid Username or Email. Choose something else."
     else
-      render json: @user.errors, status: :unprocessable_entity
+      if @user.save
+        render json: @user, status: :created
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     end
   end
 
@@ -41,6 +49,22 @@ private
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  ################################################################
+  ### LOCATION_ID IS HARD_CODED! !!!!!! ! CHANGE THIS ! !!!!!! ###
+  ################################################################
+  def form_data
+    {
+      location_id: 1,
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      username: params[:username].downcase,
+      email: params[:email].downcase,
+      password: params[:password],
+      address: params[:address],
+      zipcode: params[:zipcode]
+    }
   end
 
   def user_params
