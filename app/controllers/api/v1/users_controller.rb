@@ -13,21 +13,25 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
-    existing_username = User.find_by(username: form_data[:username])
-    existing_email = User.find_by(email: form_data[:email])
+    # existing_username = User.find_by(username: form_data[:username])
+    # existing_email = User.find_by(email: form_data[:email])
 
     @user = User.new(form_data)
-    #byebug
+    @user.location_id = 1; # TEMPORARY --- CHANGE LATER!!!
 
-    if existing_username || existing_email
-      render json: @user.errors, status: "Invalid Username or Email. Choose something else."
-    else
+    # if existing_username || existing_email
+    #   render json: @user.errors, status: "Invalid Username or Password"
+    # else
       if @user.save
-        render json: @user, status: :created
+        session[:user_id] = @user.id
+        render json: UserSerializer.new(@user), status: :created
       else
-        render json: @user.errors, status: :unprocessable_entity
+        resp = {
+          error: @user.errors.full_messages.to_sentence
+        }
+        render json: resp, status: :unprocessable_entity
       end
-    end
+    # end
   end
 
   # PATCH/PUT /users/1
