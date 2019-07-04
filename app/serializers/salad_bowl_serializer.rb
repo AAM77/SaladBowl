@@ -1,3 +1,3 @@
 class SaladBowlSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :favorite, :meal_time_frame
 end
