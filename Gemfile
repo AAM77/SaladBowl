@@ -31,12 +31,15 @@ gem 'rack-cors'
 # Use dotenv-rails to create a .env file for store sensitive information. Add the .env file to gitignore
 gem 'dotenv-rails'
 
-# User faker to generate data for rails quickly
+# Use faker to generate data for rails quickly
 gem 'faker'
+
+# Use city-state to easily get all cities and states
+gem 'city-state'
 
 # A Data Serialier
 gem 'active_model_serializers'
- 
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
