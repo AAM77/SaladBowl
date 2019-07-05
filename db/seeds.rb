@@ -293,3 +293,22 @@ end
 # t.integer "carbohydrates"
 # t.integer "sugar"
 # t.integer "protein"
+
+
+CS.countries.each do |country_abbrev, country|
+  new_country = Country.create(long_name: country, short_name: country_abbrev.to_s)
+
+  CS.states(country_abbrev).each do |state_abbrev, state|
+    new_state = State.new(long_name: state, short_name: state_abbrev.to_s)
+    new_state.country = new_country
+    new_state.save
+
+    CS.cities(state_abbrev).each do |city_name|
+      new_city = City.create(long_name: city_name, short_name: city_name)
+      new_city.state = new_state
+      new_city.save
+    end
+  end
+end
+
+# countries = [[:AD, "Andorra"], [:AE, "United Arab Emirates"]]
