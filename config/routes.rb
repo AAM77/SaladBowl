@@ -4,6 +4,16 @@ Rails.application.routes.draw do
   get "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user"
   delete "/api/v1/logout", to: "api/v1/sessions#destroy"
 
+  get "/api/v1/countries", to: "api/v1/countries#index"
+  get "/api/v1/countries/:id", to: "api/v1/countries#show"
+
+  get "/api/v1/states", to: "api/v1/states#index"
+  get "/api/v1/states/:id", to: "api/v1/states#show"
+
+  get "/api/v1/cities", to: "api/v1/cities#index"
+  get "/api/v1/cities/:id", to: "api/v1/cities#show"
+
+
   namespace :api do
     namespace :v1 do
       resources :locations
