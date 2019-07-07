@@ -1,11 +1,14 @@
 class Api::V1::StatesController < ApplicationController
-  before_action :set_state, only: [:show, :update, :destroy]
+  before_action :set_state, only: [:show, :destroy]
 
   def index
     @states = State.all
     render json: @states
   end
 
+  def show
+    render json: @location
+  end
 
   def destroy
     @state.destroy

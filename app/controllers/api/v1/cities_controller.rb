@@ -1,9 +1,13 @@
 class Api::V1::CitiesController < ApplicationController
-  before_action :set_city, only: [:show, :update, :destroy]
+  before_action :set_city, only: [:show, :destroy]
 
   def index
     @cities = City.all
     render json: @cities
+  end
+
+  def show
+    render json: @city
   end
 
 
