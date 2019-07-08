@@ -5,6 +5,6 @@ class User < ApplicationRecord
   has_many :user_bowls, dependent: :destroy
   has_many :salad_bowls, through: :user_bowls
 
-  validates :username, :email, :password, presence: true
+  validates_presence_of :username, :email, :password, :on => :create
   validates :username, uniqueness: true
 end
