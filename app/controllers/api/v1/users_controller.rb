@@ -36,11 +36,19 @@ class Api::V1::UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
+    new_params = {}
+    user_params.each do |user_param|
+      if !user_param[1].empty? && !user_param[1].nil?
+        new_params[user_param[0]] = user_param[1]
+      end
+    end
+
+    if @user.update(new_params)
       render json: @user, status: :accepted
     else
       render json: @user.errors, status: :unprocessable_entity
     end
+
   end
 
   # DELETE /users/1
