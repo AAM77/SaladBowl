@@ -6,21 +6,21 @@ require 'faker'
 # LOCATIONS #
 #############
 
-CS.countries.each do |country_abbrev, country|
-  new_country = Country.create(long_name: country, short_name: country_abbrev.to_s)
-
-  CS.states(country_abbrev).each do |state_abbrev, state|
-    new_state = State.new(long_name: state, short_name: state_abbrev.to_s)
-    new_state.country = new_country
-    new_state.save
-
-    CS.cities(state_abbrev).each do |city_name|
-      new_city = City.create(long_name: city_name, short_name: city_name)
-      new_city.state = new_state
-      new_city.save
-    end
-  end
-end
+# CS.countries.each do |country_abbrev, country|
+#   new_country = Country.create(long_name: country, short_name: country_abbrev.to_s)
+#
+#   CS.states(country_abbrev).each do |state_abbrev, state|
+#     new_state = State.new(long_name: state, short_name: state_abbrev.to_s)
+#     new_state.country = new_country
+#     new_state.save
+#
+#     CS.cities(state_abbrev).each do |city_name|
+#       new_city = City.create(long_name: city_name, short_name: city_name)
+#       new_city.state = new_state
+#       new_city.save
+#     end
+#   end
+# end
 
 ##############
 # SALAD BARS #
@@ -102,6 +102,7 @@ end
 # CATEGORIES #
 ##############
 # create 10 categories
+
 # categories = [
 #   'Carbohydrate',
 #   'Cheese',
@@ -119,7 +120,7 @@ end
 # ###############
 # # SALAD BOWLS #
 # ###############
-#
+
 # breakfast_salad_bowls = [
 #   {
 #     :name=>"Grilled Wedge Salad with a Fried Egg & Cranberry Feta",
@@ -831,28 +832,36 @@ end
 ###############
 
 # categories = Category.all.map { |c| c.id }
-# salad_bowls = SaladBowl.all.map { |s| s.id }
-#
-# # Create 10 Ingredients
-# 10.times do
-#   new_ingredient = Ingredient.new(
-#     name: Faker::Food.ingredient,
-#     calories: Faker::Number.number(2).to_i,
-#     fat: Faker::Number.number(2).to_i,
-#     cholesterol: Faker::Number.number(2).to_i,
-#     sodium: Faker::Number.number(2).to_i,
-#     carbohydrates: Faker::Number.number(2).to_i,
-#     sugar: Faker::Number.number(2).to_i,
-#     protein: Faker::Number.number(2).to_i
-#   )
-#
-#   new_ingredient.category = Category.find(categories.sample)
-#   rand(7).times do
-#     new_ingredient.salad_bowls.push(SaladBowl.find(salad_bowls.sample))
-#   end
-#
-#   new_ingredient.save
-# end
+# salad_bowls = SaladBowl.all
+
+# Create 10 Ingredients
+
+  # salad_bowls.each do |salad_bowl|
+  #   rand(10).times do
+  #     new_ingredient = Ingredient.new(
+  #       calories: Faker::Number.number(2).to_i,
+  #       fat: Faker::Number.number(2).to_i,
+  #       cholesterol: Faker::Number.number(2).to_i,
+  #       sodium: Faker::Number.number(2).to_i,
+  #       carbohydrates: Faker::Number.number(2).to_i,
+  #       sugar: Faker::Number.number(2).to_i,
+  #       protein: Faker::Number.number(2).to_i
+  #     )
+  #
+  #     new_ingredient.category = Category.find(categories.sample)
+  #     new_ingredient.name = Faker::Food.ingredient
+  #
+  #     until new_ingredient.save
+  #       new_ingredient.name = Faker::Food.ingredient
+  #     end
+  #
+  #
+  #     unless salad_bowl.ingredients.include?(new_ingredient)
+  #       salad_bowl.ingredients.push(new_ingredient)
+  #     end
+  #   end
+  #   salad_bowl.save
+  # end
 
 
 
