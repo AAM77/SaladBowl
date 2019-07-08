@@ -14,7 +14,7 @@ class Api::V1::SaladBowlsController < ApplicationController
     @salad_bowl = SaladBowl.new(salad_bowl_params)
 
     if @salad_bowl.save
-      render json: @salad_bowl, status: :created, location: @salad_bowl
+      render json: @salad_bowl, status: :created
     else
       render json: @salad_bowl.errors, status: :unprocessable_entity
     end
@@ -43,6 +43,15 @@ private
     params.require(:salad_bowl).permit(
       :name,
       :meal_time_frame,
+      :url,
+      :calories,
+      :fat,
+      :cholesterol,
+      :sodium,
+      :carbohydrates,
+      :sugar,
+      :fiber,
+      :protein,
       :favorite
     )
   end
