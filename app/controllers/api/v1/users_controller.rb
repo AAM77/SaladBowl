@@ -14,7 +14,8 @@ class Api::V1::UsersController < ApplicationController
   # POST /users
   def create
 
-    @user = User.new(form_data)
+    @user = User.new(user_params)
+    @user.password = params[:password]
     @user.location_id = 1; # TEMPORARY --- CHANGE LATER!!!
 
 
@@ -32,13 +33,6 @@ class Api::V1::UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    # new_params = {}
-    # user_params.each do |user_param|
-    #   if !user_param[1].empty? && !user_param[1].nil?
-    #     new_params[user_param[0]] = user_param[1]
-    #   end
-    # end
-
     if @user.update(user_params)
       render json: @user, status: :accepted
     else
@@ -65,18 +59,6 @@ private
   ################################################################
   ### LOCATION_ID IS HARD_CODED! !!!!!! ! CHANGE THIS ! !!!!!! ###
   ################################################################
-  def form_data
-    {
-      location_id: 1,
-      first_name: params[:first_name],
-      last_name: params[:last_name],
-      username: params[:username],
-      email: params[:email],
-      password: params[:password],
-      address: params[:address],
-      zipcode: params[:zipcode]
-    }
-  end
 
   def user_params
     params.require(:user).permit(
