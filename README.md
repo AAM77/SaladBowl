@@ -1,16 +1,14 @@
 # SaladBowl
 
-## [ NOTE 1 ]: This is the front end of the application I created. Therefore, both have similar READMEs.
-## [ NOTE 2 ]: I will return to this app to clean up the code and add more features as soon as I finish the Flatiron School curriculum.
-
+## [ NOTE 1 ]: This is the front end of the application I created. Therefore, both repos have similar READMEs.
+## [ NOTE 2 ]: Working on cleaning previous projects. Work on this will resume on September 21, 2019.
 
 ## Background
-
-One of my friends provided the inspiration for this application. In its current state, it returns randomly selected meals for a specific time of day.<br />
+The application serves to simplify the process of finding, choosing, and making a healthy meal bowl.
 <br />
 This application is split into two parts: <br />
 (1) Back End: built using Ruby on Rails <br />
-(2) Front End: built using JavaScript with React & Redux <br />
+(2) Front End: built using ReactJS & Redux w/ Thunk <br />
 
 
 ## Description
