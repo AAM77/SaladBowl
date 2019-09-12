@@ -27,40 +27,49 @@ A limited list of features for the app include:
 
 ## Built With
 
- [ TO DO ]
+* [Rails](https://guides.rubyonrails.org/) - The web framework used
+* [ActiveRecord](https://guides.rubyonrails.org/active_record_basics.html) - For Handling Database communication and Model Associations.
 
-## Plans
-
-The app is not complete yet. I am currently refactoring and cleaning up the application to remove unnecessary files and code. Once this is done, I will begin adding new features or modifying existing ones.
-
-## Installation
-
-You can clone or download this repository to your machine and follow the instructions below to run it.
-
-## Usage
-
-[ TO DO ]
-
-## Development
-
-[ TO DO ]
 
 ## Authors
 
 * **Mohammad Adeel**
 
-## Contributing
+## Plans
 
-[ TO DO ]
+The application is a work in progress. I will return to it September 21, 2019 to finish working on it. I plan on refactoring the current code to make the application's code cleaner & more efficient. The first version will have another form that handles ingredient selection. The meal bowl cards will also display nutritional facts. I have other plans that I will not be making public at this time.
+
+## Installation
+
+Clone or download this repository to your machine. Go to the front-end repository and clone or download it as well. Then, follow the Usage instructions below.
+
+
+
+
+
+## Usage
+
+At present, you can run this app by doing the following:
+
+(Note: If you already have ruby on rials installed on your machine, skip to (2))
+
+(1) Follow the instructions on https://gorails.com/setup/osx/10.14-mojave to install Ruby on Rails.
+(2) Install PostGres
+(2) Navigate to the 'SaladBowl_backend' directory on your machine using the terminal<br />
+(3) Next, type 'bundle install '. This should install all of the gems it requires.<br />
+(5) Run rake db:migrate to run the migrations
+(4) Type ' rails s -p 3001' into the terminal<br />
+(5) Open your browser and navigate to 'http://localhost:3001' (press ctrl-C or control-C while in the terminal to exit.)<br />
+(6) Alternatively, if you wish to experiment with the app locally, you can do so by typing ' rails c ''<br />
+
+
+## Reporting Issues
+
+Contributions are not allowed at this time, but you may report bugs on GitHub at https://github.com/AAM77/SaladBowl_backend.
 
 ## Code of Conduct
 
-[ TO DO ]
-
-## Versioning
-
-[ TO DO ]
+Everyone interacting in the SaladBowl project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/AAM77/SaladBowl_backend/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
-
-This application is not available for use by anyone.
+SaladBowl (_backend & _frontend) is currently the sole property of Mohammad Adeel.
